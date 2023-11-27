@@ -35,6 +35,7 @@ import { CandidatesModule } from './candidates/candidates.module';
       database: process.env.DB_DATABASE,
       autoLoadEntities: true,
       synchronize: true,
+      entityPrefix: process.env.DB_TABLE_PREFIX,
     }),
   ],
 })
