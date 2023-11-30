@@ -1,15 +1,16 @@
 import {
-  Body,
-  Controller,
-  Delete,
   Get,
-  Param,
-  Post,
   Put,
+  Post,
+  Body,
+  Param,
+  Delete,
+  Controller,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ElectionsService } from './elections.service';
-import { CreateElectionDto, UpdateElectionDto } from '../election.dto';
+import { CreateElectionDto } from './dto/create-election.dto';
+import { UpdateElectionDto } from './dto/update-election.dto';
 
 @ApiTags('elections')
 @Controller('elections')
@@ -41,6 +42,6 @@ export class ElectionsController {
 
   @Delete(':id')
   remove(@Param('id') id: number) {
-    return this.electionsService.delete(id);
+    return this.electionsService.remove(id);
   }
 }

@@ -16,7 +16,7 @@ https://www.techiediaries.com/nestjs-tutorial-rest-api-crud/
 
 - git clone https://github.com/6hislain/vote-backend
 - cd vote-backend
-- npm install 
+- npm install
 - rename _.env.example_ to _.env_
 - edit _.env_ to connect with your local database
 - npm run migrate
@@ -26,8 +26,12 @@ https://www.techiediaries.com/nestjs-tutorial-rest-api-crud/
 
 ### Database Tables
 
+- [ ] abstract service
+  - findOne
+  - remove
 - [ ] User
-- [ ] Election
+  - authenticate
+- [x] Election
 - [ ] Position
-- [ ] Candidate
+- [x] Candidate
 - [ ] Vote

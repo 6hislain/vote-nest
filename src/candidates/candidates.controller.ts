@@ -1,15 +1,16 @@
 import {
-  Body,
-  Controller,
-  Delete,
   Get,
-  Param,
-  Post,
   Put,
+  Post,
+  Body,
+  Param,
+  Delete,
+  Controller,
 } from '@nestjs/common';
-import { CandidatesService } from './candidates.service';
 import { ApiTags } from '@nestjs/swagger';
-import { CreateCandidateDto, UpdateCandidateDto } from '../candidate.dto';
+import { CandidatesService } from './candidates.service';
+import { CreateCandidateDto } from './dto/create-candidate.dto';
+import { UpdateCandidateDto } from './dto/update-candidate.dto';
 
 @ApiTags('candidates')
 @Controller('candidates')
@@ -41,6 +42,6 @@ export class CandidatesController {
 
   @Delete(':id')
   remove(@Param('id') id: number) {
-    return this.candidatesService.delete(id);
+    return this.candidatesService.remove(id);
   }
 }

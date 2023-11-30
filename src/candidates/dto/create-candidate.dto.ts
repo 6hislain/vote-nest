@@ -1,6 +1,5 @@
-import { PartialType } from '@nestjs/swagger';
-import { ApiProperty } from '@nestjs/swagger';
 import { Trim } from 'class-sanitizer';
+import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString, IsOptional } from 'class-validator';
 
 export class CreateCandidateDto {
@@ -32,5 +31,3 @@ export class CreateCandidateDto {
   @ApiProperty({ description: "candidate's position" })
   positionId: number;
 }
-
-export class UpdateCandidateDto extends PartialType(CreateCandidateDto) {}

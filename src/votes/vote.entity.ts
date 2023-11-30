@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { User } from 'src/users/user.entity';
-import { Election } from 'src/elections/election.entity';
-import { Candidate } from 'src/candidates/candidate.entity';
+import { Candidate } from 'src/candidates/entities/candidate.entity';
+import { Election } from 'src/elections/entities/election.entity';
 
 @Entity()
 export class Vote {

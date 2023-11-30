@@ -1,5 +1,5 @@
-import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { Trim } from 'class-sanitizer';
+import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString, IsDate } from 'class-validator';
 
 export class CreateElectionDto {
@@ -21,5 +21,3 @@ export class CreateElectionDto {
   @ApiProperty({ description: 'election deadline' })
   endDate: Date;
 }
-
-export class UpdateElectionDto extends PartialType(CreateElectionDto) {}

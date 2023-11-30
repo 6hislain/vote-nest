@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { CandidatesController } from './candidates/candidates.controller';
-import { CandidatesService } from './candidates/candidates.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Candidate } from './candidate.entity';
+import { Candidate } from './entities/candidate.entity';
+import { CandidatesService } from './candidates.service';
+import { CandidatesController } from './candidates.controller';
 
 @Module({
   controllers: [CandidatesController],

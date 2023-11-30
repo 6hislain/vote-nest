@@ -1,6 +1,7 @@
 import { Repository, DeepPartial } from 'typeorm';
-import { NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
+@Injectable()
 export abstract class AbstractService<T> {
   constructor(private readonly repository: Repository<T>) {}
 
@@ -27,7 +28,7 @@ export abstract class AbstractService<T> {
     return this.repository.save(entity);
   }
 
-  async delete(id: number): Promise<void> {
+  async remove(id: number): Promise<void> {
     const entity = await this.findOne(id);
     await this.repository.remove(entity);
   }
