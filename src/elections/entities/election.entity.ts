@@ -1,5 +1,5 @@
-import { Vote } from 'src/votes/entities/vote.entity';
-import { Position } from 'src/positions/entities/position.entity';
+import { Vote } from '../../votes/entities/vote.entity';
+import { Position } from '../../positions/entities/position.entity';
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 @Entity()
