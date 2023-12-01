@@ -13,21 +13,14 @@ import { CandidatesModule } from './candidates/candidates.module';
   providers: [AppService],
   controllers: [AppController],
   imports: [
-    VotesModule,
-    UsersModule,
+    CandidatesModule,
     ElectionsModule,
     PositionsModule,
-    CandidatesModule,
+    UsersModule,
+    VotesModule,
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-      type: process.env.DB_TYPE as
-        | 'mysql'
-        | 'mariadb'
-        | 'postgres'
-        | 'cockroachdb'
-        | 'sqlite'
-        | 'mssql'
-        | 'mongodb',
+      type: process.env.DB_TYPE as 'mysql' | 'mariadb' | 'postgres' | 'sqlite',
       host: process.env.DB_HOST,
       port: parseInt(process.env.DB_PORT) || 5432,
       username: process.env.DB_USERNAME,

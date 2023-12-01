@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { PositionsController } from './positions/positions.controller';
-import { PositionsService } from './positions/positions.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Position } from './position.entity';
+import { Position } from './entities/position.entity';
+import { PositionsService } from './positions.service';
+import { PositionsController } from './positions.controller';
 
 @Module({
   controllers: [PositionsController],

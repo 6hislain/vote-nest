@@ -26,9 +26,9 @@ https://www.techiediaries.com/nestjs-tutorial-rest-api-crud/
 
 ### Database Tables
 
-- [ ] User
+- [x] User
   - authenticate
 - [x] Election
-- [ ] Position
+- [x] Position
 - [x] Candidate
-- [ ] Vote
+- [x] Vote

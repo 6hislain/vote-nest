@@ -5,8 +5,8 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Vote } from 'src/votes/vote.entity';
-import { Position } from 'src/positions/position.entity';
+import { Vote } from 'src/votes/entities/vote.entity';
+import { Position } from 'src/positions/entities/position.entity';
 
 @Entity()
 export class Candidate {

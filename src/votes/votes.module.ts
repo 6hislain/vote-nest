@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { VotesController } from './votes/votes.controller';
-import { VotesService } from './votes/votes.service';
+import { Vote } from './entities/vote.entity';
+import { VotesService } from './votes.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Vote } from './vote.entity';
+import { VotesController } from './votes.controller';
 
 @Module({
   controllers: [VotesController],

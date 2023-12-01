@@ -1,4 +1,4 @@
-import { Vote } from 'src/votes/vote.entity';
+import { Vote } from 'src/votes/entities/vote.entity';
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 @Entity()
