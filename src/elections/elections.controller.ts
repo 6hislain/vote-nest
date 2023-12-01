@@ -24,7 +24,7 @@ export class ElectionsController {
 
   @Get(':id')
   findOne(@Param('id') id: number) {
-    return this.electionsService.findOne(id);
+    return this.electionsService.findOne({ id });
   }
 
   @Post()
@@ -37,7 +37,7 @@ export class ElectionsController {
     @Param('id') id: number,
     @Body() updateElectionDto: UpdateElectionDto,
   ) {
-    return this.electionsService.update(id, updateElectionDto);
+    return this.electionsService.update({ id }, updateElectionDto);
   }
 
   @Delete(':id')

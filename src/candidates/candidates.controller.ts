@@ -24,7 +24,7 @@ export class CandidatesController {
 
   @Get(':id')
   findOne(@Param('id') id: number) {
-    return this.candidatesService.findOne(id);
+    return this.candidatesService.findOne({ id });
   }
 
   @Post()
@@ -37,7 +37,7 @@ export class CandidatesController {
     @Param('id') id: number,
     @Body() updateCandidateDto: UpdateCandidateDto,
   ) {
-    return this.candidatesService.update(id, updateCandidateDto);
+    return this.candidatesService.update({ id }, updateCandidateDto);
   }
 
   @Delete(':id')

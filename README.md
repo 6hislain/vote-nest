@@ -26,9 +26,6 @@ https://www.techiediaries.com/nestjs-tutorial-rest-api-crud/
 
 ### Database Tables
 
-- [ ] abstract service
-  - findOne
-  - remove
 - [ ] User
   - authenticate
 - [x] Election

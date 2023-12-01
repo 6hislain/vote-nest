@@ -6,9 +6,6 @@ import { AbstractService } from 'src/shared/abstract/abstract.service';
 
 @Injectable()
 export class ElectionsService extends AbstractService<Election> {
-  constructor(
-    @InjectRepository(Election) electionRepository: Repository<Election>,
-  ) {
-    super(electionRepository);
-  }
+  @InjectRepository(Election)
+  public readonly repository: Repository<Election>;
 }

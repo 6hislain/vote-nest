@@ -1,35 +1,29 @@
-import { Repository, DeepPartial } from 'typeorm';
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Repository, ObjectLiteral, FindManyOptions } from 'typeorm';
 
-@Injectable()
-export abstract class AbstractService<T> {
-  constructor(private readonly repository: Repository<T>) {}
+export abstract class AbstractService<T extends ObjectLiteral> {
+  protected repository: Repository<T>;
 
-  async findAll(): Promise<T[]> {
-    return this.repository.find();
+  async findAll(conditions?: FindManyOptions<T>): Promise<T[]> {
+    return this.repository.find(conditions);
   }
 
-  async findOne(id: number): Promise<T> {
-    const entity = await this.findOne(id);
-    if (!entity) {
-      throw new NotFoundException(`Entity with id ${id} not found`);
-    }
-    return entity;
+  async findOne(conditions: any, relations?: string[]): Promise<T> {
+    return this.repository.findOne({ where: conditions, relations });
   }
 
-  async create(createDto: DeepPartial<T>): Promise<T> {
-    const entity = this.repository.create(createDto);
-    return this.repository.save(entity);
+  async create(data: any): Promise<T> {
+    return this.repository.save(data);
   }
 
-  async update(id: number, updateDto: DeepPartial<T>): Promise<T> {
-    const entity = await this.findOne(id);
-    this.repository.merge(entity, updateDto);
-    return this.repository.save(entity);
+  async update(conditions: any, data: any): Promise<T> {
+    await this.repository.update(conditions, data);
+    return this.findOne(conditions);
   }
 
-  async remove(id: number): Promise<void> {
-    const entity = await this.findOne(id);
-    await this.repository.remove(entity);
+  async remove(id: any): Promise<any> {
+    const deleted = await this.repository.delete(id);
+
+    if (deleted.affected > 0) return { message: `record deleted successfully` };
+    else return { message: 'record not found' };
   }
 }
